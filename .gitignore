@@ -1,0 +1,4 @@
+.vscode
+/dist
+/esm
+node_modules
