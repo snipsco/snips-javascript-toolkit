@@ -28,10 +28,16 @@ Assumes that your action is structured in the following way by default:
 |
 ├── dist              # the action build output folder
 |
+├── tests             # tests folder
+|   └── *.spec.[tj]s  # any number of test files
+|
 ├── package.json      # with an extra "sandbox" key, highlighted lower in the documentation
 |
-└── tests             # tests folder
-    └── *.spec.[tj]s  # any number of test files
+├── config.ini        # action configuration file
+|
+└── assets
+    └── i18n          # internationalization folder
+        └── <locale>.json # translation file for a given language
 ```
 
 ## Command line
@@ -70,7 +76,7 @@ Automatically rebuilds and run the Snips action on file change.
 
 #### `snips-toolit test [files]`
 
-Runs your test suite with [jest](https://jestjs.io/)
+Runs your test suite with [jest](https://jestjs.io/).
 
 #### `snips-toolit run`
 
