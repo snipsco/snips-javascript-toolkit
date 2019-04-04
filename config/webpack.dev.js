@@ -1,8 +1,8 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const NodemonPlugin = require('nodemon-webpack-plugin')
+const { getModulePath } = require('./tools')
 
-const nodeModulesPath = path.join(__dirname, '..', 'node_modules')
 
 module.exports = ({ entry, output }) => ({
     entry,
@@ -30,22 +30,22 @@ module.exports = ({ entry, output }) => ({
             test: /\.(ts|js)x?$/,
             exclude: /node_modules/,
             use: {
-                loader: path.join(nodeModulesPath, 'babel-loader'),
+                loader: getModulePath('babel-loader'),
                 options: {
                     presets: [
                         [
-                            path.join(nodeModulesPath, '@babel/preset-env'),
+                            getModulePath('@babel/preset-env'),
                             {
                                 targets: {
                                     node: '8'
                                 }
                             }
                         ],
-                        path.join(nodeModulesPath, '@babel/preset-typescript')
+                        getModulePath('@babel/preset-typescript')
                     ],
                     plugins: [
-                        path.join(nodeModulesPath, '@babel/plugin-proposal-class-properties'),
-                        path.join(nodeModulesPath, '@babel/plugin-proposal-object-rest-spread')
+                        getModulePath('@babel/plugin-proposal-class-properties'),
+                        getModulePath('@babel/plugin-proposal-object-rest-spread')
                     ]
                 }
             }
