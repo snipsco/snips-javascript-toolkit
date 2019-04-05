@@ -69,5 +69,5 @@ export async function build ({ entry = defaultEntry, output = defaultOutput }) {
         })
     })
     .then(() => console.log(chalk.bold.green('\n> Build succeeded!')))
-    .catch(error => console.error(chalk.bold.red('\n> Build failed…\n\n', error)))
+    .catch(error => error && error.message && console.error(chalk.bold.red('\n> Build failed…\n\n', error)))
 }

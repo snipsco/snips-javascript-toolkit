@@ -70,15 +70,15 @@ You will have to declare those in your `package.json` file, under the `sandbox`k
 ]
 ```
 
-#### `snips-toolit dev`
+#### `snips-toolkit dev`
 
 Automatically rebuilds and run the Snips action on file change.
 
-#### `snips-toolit test [files]`
+#### `snips-toolkit test [files]`
 
 Runs your test suite with [jest](https://jestjs.io/).
 
-#### `snips-toolit run`
+#### `snips-toolkit run`
 
 Runs your Snips action.
 
