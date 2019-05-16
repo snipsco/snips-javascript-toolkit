@@ -13,6 +13,7 @@ module.exports = {
     testPathIgnorePatterns: ['/node_modules/', '/src/', '/dist/', '/esm/'],
     globals: {
         __DEV__: true,
-        runnerTarget: global['runnerTarget'] ? path.resolve(global['runnerTarget']) : undefined
+        runnerTarget: global['runnerTarget'] ? path.resolve(global['runnerTarget']) : undefined,
+        sandboxedRunner: global['sandboxedRunner'] ? true : undefined
     }
 }

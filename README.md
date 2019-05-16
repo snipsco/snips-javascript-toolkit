@@ -78,6 +78,8 @@ Automatically rebuilds and run the Snips action on file change.
 
 Runs your test suite with [jest](https://jestjs.io/).
 
+Use the `-s/--sandbox` flag to run the tests in a sandboxed environment.
+
 #### `snips-toolkit run`
 
 Runs your Snips action.

@@ -1,6 +1,6 @@
-import runner from './index'
+import { sandboxedRunner } from './index'
 
-runner({
+sandboxedRunner({
     runnerOptions: {
         target: process.argv.length > 2 ? process.argv[2] : undefined
     }

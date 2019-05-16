@@ -81,5 +81,29 @@ export const i18n = {
             return possibleValues
         const randomIndex = Math.floor(Math.random() * possibleValues.length)
         return possibleValues[randomIndex]
-    }
+    },
+    /**
+     * Combines text fragments into a full sentence.
+     * @param list A list of words.
+     * @param separatorKey Key in the i18n translation file mapping to the separator.
+     */
+    joinTerms(list: string[], separatorKey: string) {
+        if(!list || list.length < 2)
+            return list && list[0] || ''
+
+        let joinedString = ''
+        for (let i = 0; i < list.length; i++) {
+            const element = list[i]
+
+            if(i === (list.length - 1)) {
+                joinedString += ' ' + i18n.translate(separatorKey, { something: element }) + ' '
+                continue
+            } else if(i > 0) {
+                joinedString += ', '
+            }
+
+            joinedString += element
+        }
+        return joinedString
+    },
 }

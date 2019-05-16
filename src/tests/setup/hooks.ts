@@ -3,7 +3,7 @@
 import { createServer, AddressInfo } from 'net'
 import { spawn } from 'child_process'
 import mqtt from 'mqtt'
-import runner from '../../runner'
+import { standardRunner, sandboxedRunner } from '../../runner'
 
 function getFreePort(): Promise<number> {
     return new Promise((resolve, reject) => {
@@ -28,6 +28,7 @@ beforeAll(async () => {
     console.log('Mosquitto ready!')
     global['SnipsToolkit'].setup.mosquitto = mosquitto
     global['SnipsToolkit'].setup.mosquittoPort = mosquittoPort
+    const runner = global['sandboxedRunner'] ? sandboxedRunner : standardRunner
     global['SnipsToolkit'].setup.killHermes = await runner({
         hermesOptions: {
             address: 'localhost:' + mosquittoPort,

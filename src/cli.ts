@@ -20,6 +20,7 @@ program
     .description('Runs your test suite.')
     .allowUnknownOption()
     .option('-t, --target <path>', 'The path to the directory containing the built action.')
+    .option('-s, --sandbox', 'Run tests in sandboxed mode')
     .action(actions.test)
 program
     .command('run')
