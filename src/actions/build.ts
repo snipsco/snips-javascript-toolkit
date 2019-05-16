@@ -23,15 +23,17 @@ export async function build ({ entry = defaultEntry, output = defaultOutput }) {
                 return reject(err)
             }
 
-            const info = stats.toJson()
+            const info = stats.toJson({
+                errorDetails: false
+            })
 
             if (stats.hasErrors()) {
-                info.errors.forEach(error => console.error(chalk.red(error)))
+                info.errors.forEach(error => console.error(chalk.red.bold(error) + '\n'))
                 return reject()
             }
 
             if (stats.hasWarnings()) {
-                info.warnings.forEach(warning => console.error(chalk.yellow(warning)))
+                info.warnings.forEach(warning => console.error(chalk.yellow(warning) + '\n'))
             }
 
             console.log(stats.toString({
@@ -56,12 +58,13 @@ export async function build ({ entry = defaultEntry, output = defaultOutput }) {
                 })
                 console.log(
                     '\n' +
-                    chalk.bold.yellow('Do not forget to add these in your package.json file under the "sandbox" key.\n')
+                    chalk.bold.yellow('Do not forget to add these in your package.json file under the "sandbox" key!\n')
                 )
-                console.log(JSON.stringify(
+
+                console.log('"sandbox": ' + JSON.stringify(
                     externalModules.map(module =>
                         module.name.substring(10, module.name.length - 1)
-                    ), null, 2)
+                    ), null, 4)
                 )
             }
 

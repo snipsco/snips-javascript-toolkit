@@ -4,7 +4,6 @@ import path from 'path'
 import webpack from 'webpack'
 import chalk from 'chalk'
 
-
 const defaultEntry = path.join(process.cwd(), 'src', 'index')
 const defaultOutput = path.join(process.cwd(), 'dist')
 

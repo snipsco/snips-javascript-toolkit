@@ -105,5 +105,5 @@ export const i18n = {
             joinedString += element
         }
         return joinedString
-    },
+    }
 }

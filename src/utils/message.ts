@@ -1,4 +1,4 @@
-import { IntentMessage, NluSlot, slotType } from 'hermes-javascript'
+import { IntentMessage, NluSlot, slotType } from 'hermes-javascript/types'
 
 function geometricMean (dataSet: number[]) {
     return Math.pow(dataSet.reduce((accumulator, element) => accumulator * element, 1), 1 / dataSet.length)
@@ -40,5 +40,5 @@ export const message = {
         if(!message.asrTokens || message.asrTokens.length < 1 || message.asrTokens[0] === undefined)
             return 1
         return geometricMean(message.asrTokens[0].map(token => token.confidence))
-    }
+    },
 }
