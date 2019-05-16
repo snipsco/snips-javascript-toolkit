@@ -1,10 +1,14 @@
 {
   "name": "snips-toolkit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Toolkit for writing Snips actions.",
   "main": "dist/lib.js",
   "module": "esm/lib.js",
   "types": "dist/lib.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snipsco/snips-javascript-toolkit"
+  },
   "sideEffects": false,
   "files": [
     "dist",
