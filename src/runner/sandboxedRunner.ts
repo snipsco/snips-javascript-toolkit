@@ -10,14 +10,13 @@ export const sandboxedRunner: Runner = async function ({
     runnerOptions = {}
 } = {}) {
     let {
-        target = path.join(process.cwd(), 'dist'),
-        cwd = process.cwd()
+        target = path.join(process.cwd(), 'dist', 'index'),
+        cwd = process.cwd(),
+        id = 'index'
     } = runnerOptions
 
     const { sandbox } = require(path.join(cwd, 'package.json'))
     const builtin: string[] = sandbox || []
-
-    target = path.join(target, 'index')
 
     return new Promise((resolve, reject) => {
         // Important: Asynchronously load hermes-javascript to prevent ref/jest issues.
@@ -68,7 +67,7 @@ export const sandboxedRunner: Runner = async function ({
                         hermes,
                         done
                     })
-                `, 'index.js')
+                `, id + '.js')
                 resolve(done)
             } catch (error) {
                 // eslint-disable-next-line

@@ -10,13 +10,11 @@ export const standardRunner: Runner = async function ({
     runnerOptions = {}
 } = {}) {
     let {
-        target = path.join(process.cwd(), 'dist'),
+        target = path.join(process.cwd(), 'dist', 'index'),
         cwd = process.cwd()
     } = runnerOptions
 
     const { name } = require(path.join(cwd, 'package.json'))
-
-    target = path.join(target, 'index')
 
     return new Promise((resolve, reject) => {
         // Important: Asynchronously load hermes-javascript to prevent ref/jest issues.

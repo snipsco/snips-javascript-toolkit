@@ -55,7 +55,7 @@ module.exports = ({ entry, output }) => ({
         new CleanWebpackPlugin(),
         new NodemonPlugin({
             script: path.join(__dirname, '..', 'dist', 'runner', 'run'),
-            args: [ path.resolve(output) ]
+            args: [ path.resolve(output, 'index') ]
         })
     ]
 })

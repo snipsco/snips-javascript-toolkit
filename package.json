@@ -5,6 +5,9 @@
   "main": "dist/lib.js",
   "module": "esm/lib.js",
   "types": "dist/lib.d.ts",
+  "bin": {
+    "snips-toolkit": "./dist/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/snipsco/snips-javascript-toolkit"
@@ -22,9 +25,6 @@
     "dev": "tsc -w",
     "lint": "eslint \"**/*.js\" \"**/*.ts\"",
     "clean": "rimraf dist && rimraf esm"
-  },
-  "bin": {
-    "snips-toolkit": "./dist/cli.js"
   },
   "author": "Julien Elbaz",
   "license": "MIT",

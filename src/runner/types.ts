@@ -3,7 +3,8 @@ import { HermesOptions } from 'hermes-javascript/types'
 
 export type RunnerOptions = {
     target?: string,
-    cwd?: string
+    cwd?: string,
+    id?: string
 }
 
 export type Runner = ({ hermesOptions, runnerOptions }: {
