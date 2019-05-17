@@ -3,7 +3,7 @@ import { FetchMockSandbox } from 'fetch-mock'
 declare global {
     export type Config = {[key: string]: any}
     export type HttpMockInitializer = (sandbox: FetchMockSandbox) => void
-    export type ConfigMockInitializer = (conf?: Config) => Config
+    export type ConfigMockInitializer = (config: Config) => void
 
     export const SnipsToolkit : {
         fetch: FetchMockSandbox,

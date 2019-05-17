@@ -7,7 +7,7 @@ import { DEFAULT_LOCALE } from '../defaults'
 
 export type SnipsConfig = {[key: string]: string}
 
-let _config: SnipsConfig
+let _config: SnipsConfig = {}
 /**
  * Configuration utilities.
  */
@@ -24,19 +24,19 @@ export const config = {
     init(): SnipsConfig {
         try {
             // Get the config file.
-            const configFilePath = path.resolve(path.join(process.cwd(), 'config.ini'))
+            const configFilePath = path.join(process.cwd(), 'config.ini')
             const iniConfig = ini.parse(fs.readFileSync(configFilePath, 'utf8'))
             // Assume that the file keys are in snake case, and camelize them.
             for (let section in iniConfig) {
                 _config = {
+                    ..._config,
                     ...camelize.camelizeKeys(iniConfig[section])
                 }
             }
             // When in dev mode, add mocks.
             if(global['__DEV__']) {
                 _config = {
-                    ...config,
-                    locale: 'english',
+                    ..._config,
                     ...global['SnipsToolkit'].config
                 }
             }

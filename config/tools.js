@@ -1,13 +1,12 @@
-const fs = require('fs')
 const path = require('path')
 
-const nodeModulesPath = path.join(__dirname, '..', 'node_modules')
+const rootPath = path.join(__dirname, '..')
 
 module.exports = {
     getModulePath(moduleName) {
-        const innerPath = path.join(nodeModulesPath, moduleName)
-        if(fs.existsSync(innerPath))
-            return innerPath
-        return moduleName
+        const innerPath = require.resolve(moduleName, {
+            paths: [ rootPath ]
+        })
+        return innerPath || moduleName
     }
 }

@@ -14,7 +14,7 @@ export const sandboxedRunner: Runner = async function ({
         cwd = process.cwd()
     } = runnerOptions
 
-    const { name, sandbox } = require(path.join(cwd, 'package.json'))
+    const { sandbox } = require(path.join(cwd, 'package.json'))
     const builtin: string[] = sandbox || []
 
     target = path.join(target, 'index')
@@ -22,20 +22,26 @@ export const sandboxedRunner: Runner = async function ({
     return new Promise((resolve, reject) => {
         // Important: Asynchronously load hermes-javascript to prevent ref/jest issues.
         require('hermes-javascript').withHermes((hermes: Hermes, done: Done) => {
+            const sandbox = {
+                hermes,
+                done,
+                stdout: process.stdout,
+                stderr: process.stderr,
+                cwd,
+                URLSearchParams
+            }
+            // Additional globals in test mode
+            if(global['__DEV__']) {
+                [
+                    '__DEV__',
+                    'Date',
+                    'SnipsToolkit'
+                ].forEach(prop => {
+                    sandbox[prop] = global[prop]
+                })
+            }
             const vm = new NodeVM({
-                sandbox: {
-                    hermes,
-                    done,
-                    moduleName: name,
-                    stdout: process.stdout,
-                    stderr: process.stderr,
-                    cwd,
-                    URLSearchParams,
-                    // Additional globals for test mode
-                    __DEV__: global['__DEV__'],
-                    Date: global['__DEV__'] ? Date : null,
-                    SnipsToolkit: global['__DEV__'] ? global['SnipsToolkit'] : null
-                },
+                sandbox,
                 wrapper: 'none',
                 require: {
                     external: true,
@@ -55,9 +61,6 @@ export const sandboxedRunner: Runner = async function ({
                     delete global.stdout
                     delete global.stderr
                     delete global.cwd
-
-                    if(global.moduleName)
-                        require('debug').enable(global.moduleName + ':error')
 
                     const index = require('${target}');
 

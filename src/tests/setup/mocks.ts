@@ -8,7 +8,7 @@ global['SnipsToolkit'] = {
         http(mockCallback: (mock: fetchMock.FetchMockSandbox) => void) {
             mockCallback(global['SnipsToolkit'].fetch)
         },
-        config(mockCallback: (currentConfig: {[key: string]: any}) => {[key: string]: any}) {
+        config(mockCallback: (currentConfig: {[key: string]: any}) => void) {
             mockCallback(global['SnipsToolkit'].config)
         }
     }
