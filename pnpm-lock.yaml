@@ -13,7 +13,7 @@ dependencies:
   commander: 2.20.0
   debug: 4.1.1
   fetch-mock: 7.3.3
-  hermes-javascript: 0.3.9
+  hermes-javascript: 0.3.11
   i18next: 15.1.1
   ini: 1.3.5
   jest: 24.8.0
@@ -1556,6 +1556,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-FK1hE4EtLTfXLme0ystLtyZQXxE=
+  /bindings/1.5.0:
+    dependencies:
+      file-uri-to-path: 1.0.0
+    dev: false
+    resolution:
+      integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==
   /bl/1.2.2:
     dependencies:
       readable-stream: 2.3.6
@@ -2796,6 +2802,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
+  /file-uri-to-path/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==
   /fill-range/4.0.0:
     dependencies:
       extend-shallow: 2.0.1
@@ -3147,11 +3157,11 @@ packages:
     dev: false
     resolution:
       integrity: sha1-jy1QjQYAtKRW2i8IZVbn5cBWo8Y=
-  /hermes-javascript/0.3.9:
+  /hermes-javascript/0.3.11:
     dependencies:
       chalk: 2.4.2
       ffi: github.com/node-ffi/node-ffi/d9b843c03b35b99f205d001ebcbedd1b6c63b3d0
-      node-fetch: 2.5.0
+      node-fetch: 2.6.0
       node-int64: 0.4.0
       ref: 1.3.5
       ref-array: 1.2.0
@@ -3163,7 +3173,7 @@ packages:
       node: '>=10'
     requiresBuild: true
     resolution:
-      integrity: sha512-MWwy6XRsqPXzgV0r8ie22vvvvjRJB1HDbTKogkPc6i53M3eIzcoqeroZPoczZwjJLQURV01ouE6LDdDZespTrQ==
+      integrity: sha512-wdtjM07aTXa36GtGArL4zhsqw09SAbPT9sQhqImmv6s0b5JkyFYraAS9sIdrwwwqUxrbSyJysUihHozmx2YgxQ==
   /hmac-drbg/1.0.1:
     dependencies:
       hash.js: 1.1.7
@@ -4572,8 +4582,13 @@ packages:
       integrity: sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
   /nan/2.13.2:
     dev: false
+    optional: true
     resolution:
       integrity: sha512-TghvYc72wlMGMVMluVo9WRJc0mB8KxxF/gZ4YYFy7V2ZQX9l7rgbPg7vjS9mt6U5HXODVFVI2bOduCzwOMv/lw==
+  /nan/2.14.0:
+    dev: false
+    resolution:
+      integrity: sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
   /nanomatch/1.2.13:
     dependencies:
       arr-diff: 4.0.0
@@ -4616,6 +4631,12 @@ packages:
       node: 4.x || >=6.0.0
     resolution:
       integrity: sha512-YuZKluhWGJwCcUu4RlZstdAxr8bFfOVHakc1mplwHkk8J+tqM1Y5yraYvIUpeX8aY7+crCwiELJq7Vl0o0LWXw==
+  /node-fetch/2.6.0:
+    dev: false
+    engines:
+      node: 4.x || >=6.0.0
+    resolution:
+      integrity: sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
   /node-int64/0.4.0:
     dev: false
     resolution:
@@ -5334,9 +5355,9 @@ packages:
       integrity: sha1-XV7mWtQc78Olxf60BYcmHkee3BM=
   /ref/1.3.5:
     dependencies:
-      bindings: 1.2.1
+      bindings: 1.5.0
       debug: 2.6.9
-      nan: 2.13.2
+      nan: 2.14.0
     dev: false
     requiresBuild: true
     resolution:
@@ -6832,7 +6853,7 @@ packages:
     dependencies:
       bindings: 1.2.1
       debug: 2.6.9
-      nan: 2.13.2
+      nan: 2.14.0
       ref: 1.3.5
       ref-struct: 1.1.0
     dev: false
@@ -6866,7 +6887,7 @@ specifiers:
   eslint: ^5.15.3
   eslint-plugin-jest: ^22.4.1
   fetch-mock: ^7.3.1
-  hermes-javascript: ^0.3.9
+  hermes-javascript: ^0.3.11
   i18next: ^15.0.8
   ini: ^1.3.5
   istanbul-lib-coverage: ^2.0.5

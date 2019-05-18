@@ -5,7 +5,7 @@ import path from 'path'
 import { Hermes, Done } from 'hermes-javascript'
 import { Runner } from './types'
 
-export const standardRunner: Runner = async function ({
+export const standardRunner: Runner = function ({
     hermesOptions = {},
     runnerOptions = {}
 } = {}) {
