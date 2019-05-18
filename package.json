@@ -1,6 +1,6 @@
 {
   "name": "snips-toolkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Toolkit for writing Snips actions.",
   "main": "dist/lib.js",
   "module": "esm/lib.js",
