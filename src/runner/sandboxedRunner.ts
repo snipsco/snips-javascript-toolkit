@@ -29,8 +29,8 @@ const bootstrap = new VMScript(`
     global.__main__ = function main() {
         const index = require(_target);
         (index.default || index)({
-            hermes: _hermes(),
-            done: _done()
+            hermes: _hermes[0],
+            done: _done[0]
         })
     }
 `)
@@ -59,14 +59,14 @@ export const sandboxedRunner: Runner = function ({
                 if(reusable && reusableVMMap.has(target)) {
                     const vmData = reusableVMMap.get(target)
                     vm = vmData.vm
-                    vmData.hermes = () => hermes
-                    vmData.done = () => done
+                    vmData.hermes[0] = hermes
+                    vmData.done[0] = done
                 } else {
                     let { sandbox } = require(path.join(cwd, 'package.json'))
                     const builtin: string[] = sandbox || []
                     sandbox = {
-                        hermes: () => hermes,
-                        done: () => done,
+                        hermes: [ hermes ],
+                        done: [ done ],
                         stdout: process.stdout,
                         stderr: process.stderr,
                         cwd,
