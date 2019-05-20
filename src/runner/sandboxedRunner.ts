@@ -77,11 +77,14 @@ export const sandboxedRunner: Runner = function ({
                     if(global['__DEV__']) {
                         [
                             '__DEV__',
-                            'Date',
                             'SnipsToolkit'
                         ].forEach(prop => {
                             sandbox[prop] = global[prop]
                         })
+                        Object.entries(global['SnipsToolkit']['globals'])
+                            .forEach(([ key, value ]) => {
+                                sandbox[key]= value
+                            })
                     }
                     vm = new NodeVM({
                         sandbox,
