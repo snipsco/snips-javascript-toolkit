@@ -39,7 +39,7 @@ export default class Session {
                  siteId: 'default',
                  intent: {
                      intentName,
-                     confidenceScore: 0.5
+                     confidenceScore: 1
                  },
                  asrTokens: [],
                  slots: [],
