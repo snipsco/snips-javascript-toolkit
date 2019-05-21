@@ -267,6 +267,28 @@ Returns when mocked: (in stringified form)
 }
 ```
 
+#### globals
+
+You can use the provided `SnipsToolkit.mock.globals` global function to override ofr define global variables.
+
+```js
+SnipsToolkit.mock.globals(globals => {
+    // Mocks the Date object in a crude way.
+    const BackupedDate = global.Date
+    const freezedTime = 1550835788763
+    const mockedDate = function Date(arg: string | number | Date) {
+        return new BackupedDate(arg || freezedTime)
+    }
+    mockedDate.now = () => freezedTime
+    mockedDate.parse = BackupedDate.parse
+    mockedDate.UTC = BackupedDate.UTC
+
+    // Assign the mocked Date to the globals object
+    globals.Date = mockedDate
+})
+
+```
+
 ### Session
 
 To simulate dialogue session rounds, you can use the `Session` helper that will pass hermes messages between your test and action code.
