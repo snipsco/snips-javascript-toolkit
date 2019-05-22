@@ -35,10 +35,10 @@ export const config = {
             }
             // When in dev mode, add mocks.
             if(global['__DEV__']) {
-                _config = {
-                    ..._config,
-                    ...global['SnipsToolkit'].config
-                }
+                const initialConfig = { ..._config }
+                const mockedConfig = { ...global['SnipsToolkit'].config }
+                _config = global['SnipsToolkit'].config
+                Object.assign(_config, initialConfig, mockedConfig)
             }
             // If no locale is specified, add default locale.
             if(!_config.locale) {
