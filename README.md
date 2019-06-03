@@ -269,7 +269,7 @@ Returns when mocked: (in stringified form)
 
 #### globals
 
-You can use the provided `SnipsToolkit.mock.globals` global function to override ofr define global variables.
+You can use the provided `SnipsToolkit.mock.globals` global function to override or define global variables.
 
 ```js
 SnipsToolkit.mock.globals(globals => {
