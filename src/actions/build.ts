@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 
+import fs from 'fs'
 import path from 'path'
 import webpack from 'webpack'
 import chalk from 'chalk'
 
 const defaultEntry = path.join(process.cwd(), 'src', 'index')
 const defaultOutput = path.join(process.cwd(), 'dist')
+const packageJsonPath = path.join(process.cwd(), 'package.json')
 
 export async function build ({ entry = defaultEntry, output = defaultOutput }) {
     console.log(chalk.bold('> Building…\n'))
@@ -56,16 +58,35 @@ export async function build ({ entry = defaultEntry, output = defaultOutput }) {
                         console.log('\t' + issuer.name)
                     })
                 })
-                console.log(
-                    '\n' +
-                    chalk.bold.yellow('Do not forget to add these in your package.json file under the "sandbox" key!\n')
+
+                const formattedModuleList = externalModules.map(module =>
+                    module.name.substring(10, module.name.length - 1)
                 )
 
-                console.log('"sandbox": ' + JSON.stringify(
-                    externalModules.map(module =>
-                        module.name.substring(10, module.name.length - 1)
-                    ), null, 4)
-                )
+                const packageJsonExists = fs.existsSync(packageJsonPath)
+
+                if(packageJsonExists) {
+                    try {
+                        const json = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
+                        json.sandbox = formattedModuleList
+                        fs.writeFileSync(packageJsonPath, JSON.stringify(json, null, 2))
+                        console.log(
+                            '\n' +
+                            chalk.bold.green('These modules have been been added to your package.json file under the "sandbox" key:\n')
+                        )
+                        console.log('"sandbox": ' + JSON.stringify(formattedModuleList, null, 4))
+                    } catch (error) {
+                        console.log(
+                            '\n' +
+                            chalk.bold.red('Encountered an error while adding the modules to your package.json file:' + error.message + '\n')
+                        )
+                    }
+                } else {
+                    console.log(
+                        '\n' +
+                        chalk.bold.red('No package.json file was found! Your action should contain this file at the root level.\n')
+                    )
+                }
             }
 
             resolve()
