@@ -74,6 +74,9 @@ You will have to declare those in your `package.json` file, under the `sandbox`k
 
 Automatically rebuilds and run the Snips action on file change.
 
+You can debug the action by connecting a debugger to the 9229 port.
+Check [the node.js website](https://nodejs.org/de/docs/guides/debugging-getting-started/) for more details.
+
 #### `snips-toolkit test [files]`
 
 Runs your test suite with [jest](https://jestjs.io/).

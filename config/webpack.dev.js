@@ -15,11 +15,8 @@ module.exports = ({ entry, output }) => ({
         extensions: ['.ts', '.tsx', '.js', '.json']
     },
     target: 'node',
-    // Development mode would be nice to have, but there are issues
-    // between sandboxing and treeshaking that does not remove
-    // unnecessary node.js requires.
-    mode: 'production',
-    devtool: 'source-map',
+    mode: 'development',
+    devtool: 'eval-source-map',
     watch: true,
     node: {
         __dirname: false,
@@ -55,6 +52,7 @@ module.exports = ({ entry, output }) => ({
         new CleanWebpackPlugin(),
         new NodemonPlugin({
             script: path.join(__dirname, '..', 'dist', 'runner', 'run'),
+            nodeArgs: [ '--inspect' ],
             args: [ path.resolve(output, 'index') ]
         })
     ]
