@@ -38,6 +38,8 @@ beforeAll(async () => {
             target: global['runnerTarget']
         }
     })
+    // Sleep 2 seconds while the action is bootstrapping.
+    await new Promise(resolve => setTimeout(resolve, 2000))
 })
 
 beforeEach(done => {
