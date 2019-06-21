@@ -1,0 +1,35 @@
+{
+  "name": "snips-toolkit-utils",
+  "version": "1.0.0",
+  "description": "Snips toolkit utilities.",
+  "main": "dist/index.js",
+  "module": "esm/index.js",
+  "author": "Julien Elbaz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snipsco/snips-javascript-toolkit"
+  },
+  "files": [
+    "dist",
+    "esm"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "start": "npm run lint && npm run build",
+    "build": "npm run clean && tsc && tsc -m commonjs --outDir dist",
+    "lint": "eslint \"src/**/*.ts\"",
+    "clean": "rimraf dist && rimraf esm"
+  },
+  "devDependencies": {
+    "hermes-javascript": "^0.3.12"
+  },
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "debug": "^4.1.1",
+    "i18next": "^17.0.4",
+    "ini": "^1.3.5",
+    "node-fetch": "^2.6.0",
+    "wretch": "^1.5.2"
+  }
+}

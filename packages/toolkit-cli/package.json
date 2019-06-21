@@ -1,0 +1,40 @@
+{
+  "name": "snips-toolkit-cli",
+  "version": "1.0.0",
+  "description": "Snips toolkit CLI tool.",
+  "main": "dist/index.js",
+  "module": "esm/index.js",
+  "author": "Julien Elbaz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snipsco/snips-javascript-toolkit"
+  },
+  "files": [
+    "dist",
+    "esm"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "start": "npm run lint && npm run build",
+    "build": "npm run clean && tsc && tsc -m commonjs --outDir dist && chmod a+x dist/cli.js && chmod a+x esm/cli.js",
+    "lint": "eslint \"**/*.js\" \"**/*.ts\"",
+    "clean": "rimraf dist && rimraf esm"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "babel-loader": "^8.0.6",
+    "chalk": "^2.4.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "commander": "^2.20.0",
+    "fetch-mock": "^7.3.3",
+    "jest": "^24.8.0",
+    "mqtt": "^3.0.0",
+    "snips-toolkit-runner": "^1.0.0",
+    "webpack": "^4.35.0"
+  }
+}
