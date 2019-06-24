@@ -1,6 +1,6 @@
 {
   "name": "snips-toolkit",
-  "version": "1.0.6-beta.1",
+  "version": "1.0.6",
   "description": "Toolkit for writing Snips actions.",
   "main": "dist/lib.js",
   "module": "esm/lib.js",
@@ -19,9 +19,11 @@
   ],
   "scripts": {
     "start": "npm run lint && npm run build",
+    "start:all": "pnpm recursive run start",
     "build": "npm run clean && tsc && tsc -m commonjs --outDir dist && chmod a+x dist/cli.js && chmod a+x esm/cli.js",
     "lint": "eslint \"src/**/*.ts\"",
-    "clean": "rimraf dist && rimraf esm"
+    "clean": "rimraf dist && rimraf esm",
+    "publish:all": "pnpm recursive exec -- pnpm publish"
   },
   "author": "Julien Elbaz",
   "license": "MIT",
@@ -42,9 +44,9 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.0",
-    "snips-toolkit-cli": "1.0.0-beta.1",
-    "snips-toolkit-runner": "1.0.0-beta.1",
-    "snips-toolkit-tests": "1.0.0-beta.1",
-    "snips-toolkit-utils": "1.0.0-beta.1"
+    "snips-toolkit-cli": "^1.0.0",
+    "snips-toolkit-runner": "^1.0.0",
+    "snips-toolkit-tests": "^1.0.0",
+    "snips-toolkit-utils": "^1.0.0"
   }
 }

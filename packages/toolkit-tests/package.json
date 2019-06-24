@@ -1,6 +1,6 @@
 {
   "name": "snips-toolkit-tests",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "Snips toolkit testing utilities.",
   "main": "dist/index.js",
   "module": "esm/index.js",
