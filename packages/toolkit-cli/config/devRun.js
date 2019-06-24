@@ -1,4 +1,4 @@
-import { sandboxedRunner } from './index'
+const { sandboxedRunner } = require('snips-toolkit-runner')
 
 sandboxedRunner({
     runnerOptions: {

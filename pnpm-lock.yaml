@@ -34,10 +34,10 @@ importers:
       eslint-plugin-jest: ^22.7.0
       jest-haste-map: ^24.8.1
       node-fetch: ^2.6.0
-      snips-toolkit-cli: 1.0.0-beta.0
-      snips-toolkit-runner: 1.0.0-beta.0
-      snips-toolkit-tests: 1.0.0-beta.0
-      snips-toolkit-utils: 1.0.0-beta.0
+      snips-toolkit-cli: ^1.0.0
+      snips-toolkit-runner: ^1.0.0
+      snips-toolkit-tests: ^1.0.0
+      snips-toolkit-utils: ^1.0.0
       typescript: ^3.3.4000
   packages/toolkit-cli:
     dependencies:
@@ -71,7 +71,7 @@ importers:
       jest: ^24.8.0
       mqtt: ^3.0.0
       nodemon-webpack-plugin: ^4.0.8
-      snips-toolkit-runner: 1.0.0-beta.0
+      snips-toolkit-runner: ^1.0.0
       ts-jest: ^24.0.2
       webpack: ^4.35.0
   packages/toolkit-runner:
@@ -6778,5 +6778,6 @@ packages:
     name: ffi
     requiresBuild: true
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/node-ffi/node-ffi/tar.gz/d9b843c03b35b99f205d001ebcbedd1b6c63b3d0'
     version: 2.3.0
