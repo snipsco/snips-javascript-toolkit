@@ -1,5 +1,5 @@
 .vscode
-/dist
-/esm
+dist/
+esm/
 node_modules
 pnpm-debug.log

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "target": "es6",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "declaration": true,
+        "outDir": "esm",
+        "baseUrl": ".",
+        "strict": true,
+        "lib": ["es2017", "dom"]
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

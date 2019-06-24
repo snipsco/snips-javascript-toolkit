@@ -1,0 +1,29 @@
+{
+  "name": "snips-toolkit-runner",
+  "version": "1.0.0-beta.1",
+  "description": "Snips toolkit runner.",
+  "main": "dist/index.js",
+  "module": "esm/index.js",
+  "author": "Julien Elbaz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snipsco/snips-javascript-toolkit"
+  },
+  "files": [
+    "dist",
+    "esm"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "start": "npm run lint && npm run build",
+    "build": "npm run clean && tsc && tsc -m commonjs --outDir dist",
+    "lint": "eslint \"src/**/*.ts\"",
+    "clean": "rimraf dist && rimraf esm"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "hermes-javascript": "^0.3.12",
+    "vm2": "^3.8.2"
+  }
+}
