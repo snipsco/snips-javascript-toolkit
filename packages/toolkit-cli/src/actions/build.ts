@@ -16,9 +16,9 @@ export async function build ({ entry = defaultEntry, output = defaultOutput }) {
         output
     })
     return new Promise((resolve, reject) => {
-        webpack(webpackConfig, (err, stats) => {
+        webpack(webpackConfig, (err: any, stats) => {
             if (err) {
-                console.error(chalk.red(err.stack || err))
+                console.error(chalk.red(err.stack || err.toString()))
                 if (err.details) {
                   console.error(chalk.red(err.details))
                 }
@@ -43,7 +43,7 @@ export async function build ({ entry = defaultEntry, output = defaultOutput }) {
                 colors: true
             }) + '\n')
 
-            const externalModules = info
+            const externalModules = (info as any)
                 .chunks
                 .reduce((modules, chunk) => [ ...modules, ...chunk.modules], [])
                 .filter(module => module.name.startsWith('external'))

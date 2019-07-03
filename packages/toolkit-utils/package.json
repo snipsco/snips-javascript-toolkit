@@ -1,6 +1,6 @@
 {
   "name": "snips-toolkit-utils",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.arm64.0",
   "description": "Snips toolkit utilities.",
   "main": "dist/index.js",
   "module": "esm/index.js",
@@ -22,7 +22,7 @@
     "clean": "rimraf dist && rimraf esm"
   },
   "devDependencies": {
-    "hermes-javascript": "^0.3.12"
+    "hermes-javascript": "0.3.7-beta.arm64.2"
   },
   "dependencies": {
     "camelcase": "^5.3.1",

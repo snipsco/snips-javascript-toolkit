@@ -1,6 +1,6 @@
 {
   "name": "snips-toolkit-runner",
-  "version": "1.0.1",
+  "version": "1.0.1-beta.arm64.0",
   "description": "Snips toolkit runner.",
   "main": "dist/index.js",
   "module": "esm/index.js",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "hermes-javascript": "^0.3.12",
+    "hermes-javascript": "0.3.7-beta.arm64.2",
     "vm2": "^3.8.2"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "snips-toolkit",
-  "version": "1.0.8",
+  "version": "1.0.8-beta.arm64.0",
   "description": "Toolkit for writing Snips actions.",
   "main": "dist/lib.js",
   "module": "esm/lib.js",
@@ -44,9 +44,9 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.0",
-    "snips-toolkit-cli": "^1.0.0",
-    "snips-toolkit-runner": "^1.0.0",
-    "snips-toolkit-tests": "^1.0.0",
-    "snips-toolkit-utils": "^1.0.0"
+    "snips-toolkit-cli": "1.0.1-beta.arm64.0",
+    "snips-toolkit-runner": "1.0.1-beta.arm64.0",
+    "snips-toolkit-tests": "1.0.0-beta.arm64.0",
+    "snips-toolkit-utils": "1.0.0-beta.arm64.0"
   }
 }
