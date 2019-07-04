@@ -23,7 +23,8 @@ module.exports = ({ entry, output }) => ({
     },
     optimization: {
         providedExports: true,
-        usedExports: true
+        usedExports: true,
+        sideEffects: true
     },
     module: {
         noParse: /bindings/,
