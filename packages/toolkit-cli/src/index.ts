@@ -6,6 +6,7 @@ program
     .description('Automatically rebuilds and run the action on file change.')
     .option('-e, --entry <file>', 'A filename which act as the entry point to build your project.')
     .option('-o, --output <path>', 'A path for the bundled file to be saved in.')
+    .option('-c, --config-path <path>', 'Path to the configuration file.')
     .action(actions.dev)
 program
     .command('build')
@@ -24,6 +25,7 @@ program
     .command('run')
     .description('Runs your Snips action.')
     .option('-t, --target <path>', 'The path to the directory containing the built action.')
+    .option('-c, --config-path <path>', 'Path to the configuration file.')
     .action(actions.run)
 
 program.parse(process.argv)

@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const NodemonPlugin = require('nodemon-webpack-plugin')
 const { getModulePath } = require('./tools')
 
-module.exports = ({ entry, output }) => ({
+module.exports = ({ entry, output, configPath }) => ({
     entry,
     output: {
         path: path.resolve(output),
@@ -58,7 +58,7 @@ module.exports = ({ entry, output }) => ({
         new NodemonPlugin({
             script: path.join(__dirname, 'devRun'),
             nodeArgs: [ '--inspect' ],
-            args: [ path.resolve(output, 'index') ]
+            args: [ path.resolve(output, 'index'), configPath || '' ]
         })
     ]
 })

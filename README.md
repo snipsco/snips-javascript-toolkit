@@ -48,11 +48,9 @@ Displays a help message and exits.
 
 #### `snips-toolkit build`
 
-Builds your action to `./dist/index.js` with [webpack](https://webpack.js.org/).
+Builds your action to `./dist/index.js` using [webpack](https://webpack.js.org/).
 
-This command will warn if your action code uses node.js native modules.
-
-You will have to declare those in your `package.json` file, under the `sandbox`key.
+This command will warn if your action code uses node.js native modules, and they will be automatically added to your `package.json` file under the `sandbox` key.
 
 ```json
 // Example:
@@ -77,6 +75,8 @@ Automatically rebuilds and run the Snips action on file change.
 You can debug the action by connecting a debugger to the 9229 port.
 Check [the node.js website](https://nodejs.org/de/docs/guides/debugging-getting-started/) for more details.
 
+Use the `-c/--config-path` if you need to use custom hermes options.
+
 #### `snips-toolkit test [files]`
 
 Runs your test suite with [jest](https://jestjs.io/).
@@ -86,6 +86,8 @@ Use the `-s/--sandbox` flag to run the tests in a sandboxed environment.
 #### `snips-toolkit run`
 
 Runs your Snips action.
+
+Use the `-c/--config-path` if you need to use custom hermes options.
 
 ## Utils
 
@@ -220,6 +222,27 @@ const camelizedKey = camelize(key)
 ```js
 // Returns a cloned object having camelized keys.
 const camelizedObject = camelizeKeys(object)
+```
+
+## Hermes configuration
+
+In order to pass custom [hermes options](https://github.com/snipsco/hermes-protocol/tree/develop/platforms/hermes-javascript#hermes-class), you can use the `-c` flag to specify the path to a configuration file.
+
+For instance, if you are using an mqtt broker running on a different machine, you could add options in a file named `hermes_config.json`.
+
+```json
+{
+    "address": "ip:port"
+}
+```
+
+And add the `-c` flag in the `package.json` file.
+
+```json
+"scripts": {
+    "dev": "snips-toolkit dev -c ./hermes_config.json",
+    "launch": "snips-toolkit run -c ./hermes_config.json"
+}
 ```
 
 ## Unit tests
