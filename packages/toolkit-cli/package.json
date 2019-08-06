@@ -1,6 +1,6 @@
 {
   "name": "snips-toolkit-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Snips toolkit CLI tool.",
   "main": "dist/index.js",
   "module": "esm/index.js",
