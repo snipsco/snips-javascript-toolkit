@@ -3,9 +3,9 @@
 import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
-import { sandboxedRunner } from 'snips-toolkit-runner'
+import { sandboxedRunner, standardRunner } from 'snips-toolkit-runner'
 
-export function run({ target, configPath }) {
+export function run({ target, configPath, sandbox }) {
     console.log(chalk.bold('> Running your action…'))
     if(target)
         console.log('Target directory is', target)
@@ -19,7 +19,8 @@ export function run({ target, configPath }) {
         }
     }
     console.log()
-    sandboxedRunner({
+    const runner = sandbox ? sandboxedRunner : standardRunner
+    runner({
         runnerOptions: {
             target: target ? path.resolve(target) : undefined
         },

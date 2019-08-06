@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 
 const fs = require('fs')
-const { sandboxedRunner } = require('snips-toolkit-runner')
+const { sandboxedRunner, standardRunner } = require('snips-toolkit-runner')
 
-const configPath = process.argv.length > 3 && process.argv[3]
+const target = process.argv[2]
+const configPath = process.argv[3] === '-noconf' ? null : process.argv[3]
+const sandbox = process.argv[4] === '-sandbox'
 
 let config = {}
 if(configPath) {
@@ -15,9 +17,9 @@ if(configPath) {
     }
 }
 
-sandboxedRunner({
+(sandbox ? sandboxedRunner : standardRunner)({
     runnerOptions: {
-        target: process.argv.length > 2 ? process.argv[2] : undefined
+        target
     },
     hermesOptions: {
         ...config

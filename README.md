@@ -76,6 +76,7 @@ You can debug the action by connecting a debugger to the 9229 port.
 Check [the node.js website](https://nodejs.org/de/docs/guides/debugging-getting-started/) for more details.
 
 Use the `-c/--config-path` if you need to use custom hermes options.
+Use the `-ns/--no-sandbox` to disable the sandbox.
 
 #### `snips-toolkit test [files]`
 
@@ -88,6 +89,7 @@ Use the `-s/--sandbox` flag to run the tests in a sandboxed environment.
 Runs your Snips action.
 
 Use the `-c/--config-path` if you need to use custom hermes options.
+Use the `-ns/--no-sandbox` to disable the sandbox.
 
 ## Utils
 

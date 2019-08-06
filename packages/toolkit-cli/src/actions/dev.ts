@@ -7,13 +7,14 @@ import chalk from 'chalk'
 const defaultEntry = path.join(process.cwd(), 'src', 'index')
 const defaultOutput = path.join(process.cwd(), 'dist')
 
-export function dev ({ entry = defaultEntry, output = defaultOutput, configPath }) {
+export function dev ({ entry = defaultEntry, output = defaultOutput, configPath, sandbox }) {
     console.log(chalk.bold('> Running in dev mode…\n'))
 
     const webpackConfig = require('../../config/webpack.dev.js')({
         entry,
         output,
-        configPath
+        configPath,
+        sandbox
     })
 
     return webpack(webpackConfig, (_, stats) => {
