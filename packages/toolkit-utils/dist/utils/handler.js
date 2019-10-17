@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -19,7 +20,7 @@ exports.handler = {
     /**
      * Wrap a dialogue handler to gracefully capture and log errors.
      */
-    wrap: (handler, thresholds) => ((message, flow, ...args) => __awaiter(this, void 0, void 0, function* () {
+    wrap: (handler, thresholds) => ((message, flow, ...args) => __awaiter(void 0, void 0, void 0, function* () {
         logger_1.logger.debug('message: %O', message);
         try {
             if (thresholds && intentMessageGuard(message) && ((thresholds.intent && message.intent.confidenceScore < thresholds.intent) ||

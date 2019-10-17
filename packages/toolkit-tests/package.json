@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "fetch-mock": "^7.3.3",
-    "hermes-javascript": "^0.3.12"
+    "hermes-javascript": "^0.4.1"
   },
   "dependencies": {
     "mqtt": "^3.0.0"

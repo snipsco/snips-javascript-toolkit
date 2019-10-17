@@ -22,7 +22,7 @@
     "clean": "rimraf dist && rimraf esm"
   },
   "devDependencies": {
-    "hermes-javascript": "^0.3.12"
+    "hermes-javascript": "^0.4.1"
   },
   "dependencies": {
     "camelcase": "^5.3.1",

@@ -30,7 +30,7 @@ exports.config = {
             const iniConfig = ini_1.default.parse(fs_1.default.readFileSync(configFilePath, 'utf8'));
             // Assume that the file keys are in snake case, and camelize them.
             for (let section in iniConfig) {
-                _config = Object.assign({}, _config, camelize_1.camelize.camelizeKeys(iniConfig[section]));
+                _config = Object.assign(Object.assign({}, _config), camelize_1.camelize.camelizeKeys(iniConfig[section]));
             }
             // When in dev mode, add mocks.
             if (global['__DEV__']) {
